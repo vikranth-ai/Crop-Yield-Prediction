@@ -255,7 +255,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Your Name**
 - GitHub: [@yourusername](https://github.com/vikranth-ai)
-- LinkedIn: [Your Name](https://www.linkedin.com/in/vikranth-chary-721128303/)
+- LinkedIn: [Vikranth](https://www.linkedin.com/in/vikranth-chary-721128303/)
 - Email: vikranth.vicky0116@gmail.com
 
 ## 🙏 Acknowledgments
