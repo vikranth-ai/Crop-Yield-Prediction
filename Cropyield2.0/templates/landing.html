@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Yield Prediction - AI-Powered Agriculture</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='landing.css') }}">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">🌾 CropPredict AI</div>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#about">About</a>
+                <a href="/auth" class="btn-nav">Get Started</a>
+            </div>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    Predict Your Crop Yield with
+                    <span class="gradient-text">AI Precision</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Harness the power of machine learning to optimize your agricultural decisions. 
+                    Get accurate yield predictions using 6 advanced AI models.
+                </p>
+                <div class="hero-buttons">
+                    <a href="/auth" class="btn-primary-large">Start Predicting Now</a>
+                    <a href="#how-it-works" class="btn-secondary-large">Learn More</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">6</div>
+                        <div class="stat-label">AI Models</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">95%</div>
+                        <div class="stat-label">Accuracy</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">∞</div>
+                        <div class="stat-label">Predictions</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="floating-card card-1">
+                    <div class="card-icon">📊</div>
+                    <div class="card-text">Real-time Analytics</div>
+                </div>
+                <div class="floating-card card-2">
+                    <div class="card-icon">🤖</div>
+                    <div class="card-text">6 ML Models</div>
+                </div>
+                <div class="floating-card card-3">
+                    <div class="card-icon">🌾</div>
+                    <div class="card-text">Crop Optimization</div>
+                </div>
+                <div class="hero-graphic">
+                    <div class="graphic-circle"></div>
+                    <div class="graphic-icon">🌱</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Powerful Features for Smart Farming</h2>
+            <p class="section-subtitle">Everything you need to make data-driven agricultural decisions</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3>Multiple AI Models</h3>
+                    <p>Compare predictions from 6 advanced models: Linear Regression, Random Forest, Gradient Boosting, XGBoost, LightGBM, and CatBoost</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Visual Analytics</h3>
+                    <p>Interactive charts and graphs to visualize yield patterns, correlations, and model performance</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">💾</div>
+                    <h3>Prediction History</h3>
+                    <p>Save and track all your predictions. Download historical data in CSV format for further analysis</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>High Accuracy</h3>
+                    <p>Achieve up to 95% prediction accuracy with ensemble model averaging and advanced ML techniques</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Real-time Results</h3>
+                    <p>Get instant yield predictions based on your input parameters. No waiting, no delays</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Responsive Design</h3>
+                    <p>Access from any device - desktop, tablet, or mobile. Beautiful UI that works everywhere</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <p class="section-subtitle">Simple, fast, and accurate predictions in 3 easy steps</p>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Enter Your Data</h3>
+                        <p>Input your farm parameters: area, fertilizer, water usage, crop type, soil type, irrigation method, and season</p>
+                    </div>
+                </div>
+                
+                <div class="step-arrow">→</div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>AI Analysis</h3>
+                        <p>Our 6 trained ML models analyze your data and generate predictions based on historical patterns</p>
+                    </div>
+                </div>
+                
+                <div class="step-arrow">→</div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Get Results</h3>
+                        <p>Receive accurate yield predictions instantly. Compare models, save results, and make informed decisions</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Models Section -->
+    <section class="models">
+        <div class="container">
+            <h2 class="section-title">Powered by Advanced AI</h2>
+            <p class="section-subtitle">Six state-of-the-art machine learning models working together</p>
+            
+            <div class="models-grid">
+                <div class="model-card">
+                    <h4>Linear Regression</h4>
+                    <p>Fast baseline predictions</p>
+                </div>
+                <div class="model-card">
+                    <h4>Random Forest</h4>
+                    <p>Ensemble tree-based learning</p>
+                </div>
+                <div class="model-card">
+                    <h4>Gradient Boosting</h4>
+                    <p>Sequential error correction</p>
+                </div>
+                <div class="model-card">
+                    <h4>XGBoost</h4>
+                    <p>Optimized gradient boosting</p>
+                </div>
+                <div class="model-card">
+                    <h4>LightGBM</h4>
+                    <p>High-performance ML framework</p>
+                </div>
+                <div class="model-card">
+                    <h4>CatBoost</h4>
+                    <p>Handles categorical features</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About CropPredict AI</h2>
+                    <p>We're revolutionizing agriculture with artificial intelligence. Our platform helps farmers, agronomists, and agricultural businesses make data-driven decisions about crop yields.</p>
+                    <p>By combining multiple machine learning models and real-world agricultural data, we provide the most accurate yield predictions in the industry.</p>
+                    <div class="about-features">
+                        <div class="about-feature">
+                            <span class="check">✓</span> Free to use
+                        </div>
+                        <div class="about-feature">
+                            <span class="check">✓</span> No credit card required
+                        </div>
+                        <div class="about-feature">
+                            <span class="check">✓</span> Unlimited predictions
+                        </div>
+                        <div class="about-feature">
+                            <span class="check">✓</span> Data privacy guaranteed
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="about-graphic">
+                        <div class="graph-bar" style="height: 60%"></div>
+                        <div class="graph-bar" style="height: 85%"></div>
+                        <div class="graph-bar" style="height: 70%"></div>
+                        <div class="graph-bar" style="height: 95%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Optimize Your Crop Yield?</h2>
+            <p>Join thousands of farmers making smarter decisions with AI</p>
+            <a href="/auth" class="btn-cta">Get Started Free</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>🌾 CropPredict AI</h3>
+                    <p>AI-powered agricultural analytics for smarter farming decisions.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <a href="#features">Features</a>
+                    <a href="#how-it-works">How It Works</a>
+                    <a href="/auth">Get Started</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <a href="#about">About Us</a>
+                    <a href="#">Contact</a>
+                    <a href="#">Privacy Policy</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <a href="#">Twitter</a>
+                    <a href="#">LinkedIn</a>
+                    <a href="#">GitHub</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 CropPredict AI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='landing.js') }}"></script>
+</body>
+</html>

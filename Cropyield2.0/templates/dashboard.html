@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Crop Yield Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <!-- <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" class="nav-logo"> -->
+                 🌾
+                Crop Yield Prediction
+            </div>
+            <div class="nav-user">
+                <span>Welcome, <strong>{{ username }}</strong></span>
+                <button onclick="logout()" class="btn-secondary">Logout</button>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-section">
+                <h3>Settings</h3>
+                <label>Test Data Split (%)</label>
+                <input type="range" id="test-size" min="10" max="50" value="20" step="5">
+                <span id="test-size-value">20%</span>
+            </div>
+            <button onclick="trainModels()" class="btn-primary btn-block">🚀 Train Models</button>
+            <div id="training-status" class="status-box"></div>
+        </aside>
+        
+        <main class="main-content">
+            <div class="tabs">
+                <button class="tab-btn active" onclick="switchTab('dataset')">📊 Dataset</button>
+                <button class="tab-btn" onclick="switchTab('predict')">🎯 Predict</button>
+                <button class="tab-btn" onclick="switchTab('eda')">📈 EDA</button>
+                <button class="tab-btn" onclick="switchTab('evaluation')">📊 Evaluation</button>
+                <button class="tab-btn" onclick="switchTab('comparison')">📊 Comparison</button>
+                <button class="tab-btn" onclick="switchTab('history')">📥 History</button>
+            </div>
+            
+            <!-- Dataset Tab -->
+            <div id="dataset-tab" class="tab-pane active">
+                <h2>Dataset Overview</h2>
+                <button onclick="downloadDataset()" class="btn-secondary">Download CSV</button>
+                <div id="dataset-table" class="table-container"></div>
+            </div>
+            
+            <!-- Prediction Tab -->
+            <div id="predict-tab" class="tab-pane">
+                <h2>Make Prediction</h2>
+                <div id="predict-warning" class="warning">Please train models first</div>
+                
+                <form id="predict-form" class="predict-form">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Farm Area (acres)</label>
+                            <input type="range" id="farm-area" min="1" max="50" value="10" step="0.5">
+                            <span id="farm-area-value">10</span>
+                        </div>
+                        <div class="form-group">
+                            <label>Fertilizer Used (kg)</label>
+                            <input type="range" id="fertilizer" min="50" max="500" value="200" step="10">
+                            <span id="fertilizer-value">200</span>
+                        </div>
+                        <div class="form-group">
+                            <label>Pesticide Used (kg)</label>
+                            <input type="range" id="pesticide" min="5" max="50" value="10" step="1">
+                            <span id="pesticide-value">10</span>
+                        </div>
+                        <div class="form-group">
+                            <label>Water Usage (liters)</label>
+                            <input type="range" id="water" min="1000" max="10000" value="5000" step="100">
+                            <span id="water-value">5000</span>
+                        </div>
+                        <div class="form-group">
+                            <label>Crop Type</label>
+                            <select id="crop">
+                                <option>Wheat</option>
+                                <option>Rice</option>
+                                <option>Cotton</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Irrigation Type</label>
+                            <select id="irrigation">
+                                <option>Drip</option>
+                                <option>Manual</option>
+                                <option>Flood</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Soil Type</label>
+                            <select id="soil">
+                                <option>Loamy</option>
+                                <option>Sandy</option>
+                                <option>Clay</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Season</label>
+                            <select id="season">
+                                <option>Kharif</option>
+                                <option>Rabi</option>
+                                <option>Zaid</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">Predict Yield</button>
+                        <button type="button" onclick="savePrediction()" class="btn-secondary" id="save-btn" disabled>💾 Save Prediction</button>
+                    </div>
+                </form>
+                
+                <div id="prediction-result" class="result-box"></div>
+            </div>
+            
+            <!-- EDA Tab -->
+            <div id="eda-tab" class="tab-pane">
+                <h2>Exploratory Data Analysis</h2>
+                <div id="eda-charts" class="charts-grid"></div>
+            </div>
+            
+            <!-- Evaluation Tab -->
+            <div id="evaluation-tab" class="tab-pane">
+                <h2>Model Evaluation</h2>
+                <div id="eval-table" class="table-container"></div>
+                <div class="charts-grid">
+                    <canvas id="r2-chart"></canvas>
+                    <canvas id="rmse-chart"></canvas>
+                </div>
+                
+                <h3 style="margin-top: 40px; margin-bottom: 20px;">Actual vs Predicted Yield Comparison</h3>
+                <div id="actual-vs-predicted-charts" class="comparison-charts-grid"></div>
+            </div>
+            
+            <!-- Comparison Tab -->
+            <div id="comparison-tab" class="tab-pane">
+                <h2>Model-wise Prediction Comparison</h2>
+                <div id="comparison-content">
+                    <p class="info">Make a prediction first to see comparison</p>
+                </div>
+                <canvas id="comparison-chart"></canvas>
+            </div>
+            
+            <!-- History Tab -->
+            <div id="history-tab" class="tab-pane">
+                <h2>Prediction History</h2>
+                <button onclick="downloadHistory()" class="btn-secondary">Download History</button>
+                <div id="history-table" class="table-container"></div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="{{ url_for('static', filename='dashboard.js') }}"></script>
+</body>
+</html>
