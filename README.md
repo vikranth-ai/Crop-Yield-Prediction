@@ -53,8 +53,8 @@ An AI-powered web application that predicts crop yields using multiple machine l
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/vikranth-ai/Crop-Yield-Prediction
-cd crop-yield-prediction
+git clone https://github.com/vikranth-ai/Crop-Yield-Prediction.git
+cd Crop-Yield-Prediction
 ```
 
 2. **Create virtual environment**
